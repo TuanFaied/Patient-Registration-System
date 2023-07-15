@@ -1,8 +1,8 @@
 # Patient-Registration-System
 
-This desktop app was desinged to maintain the details of patients of a private channeling center.
+This desktop app was designed to maintain the details of patients of a private channeling center.
 
-There are two type of users;
+There are two types of users;
 1. Admin
 2. User/Patients
 
@@ -12,12 +12,12 @@ Admin can;
 2. Create Users
 3. Edit any changes
 4. Delete any entry
-5. Can set aadmin info
+5. Can set admin info
 
 A Normal user can;
 1. See their registered info
-2. CAan edit there credentials
+2. Can edit there credentials
 
 Can access the system through;
-1. Username : Admin
-2. Password : admin123
+1. Username: Admin
+2. Password: admin123

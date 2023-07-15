@@ -1,0 +1,20 @@
+﻿Patient_Registration_System
+1.0.0.0
+
+winexe
+C#
+.cs
+E:\semester 3\Programming project\Patient_Registration_System\Patient_Registration_System\obj\Debug\net7.0-windows\
+Patient_Registration_System
+none
+false
+TRACE;DEBUG;NET;NET7_0;NETCOREAPP
+E:\semester 3\Programming project\Patient_Registration_System\Patient_Registration_System\App.xaml
+11-376385762
+
+45-1274113564
+2201692492737
+View\AdminSettingView.xaml;View\EditView.xaml;View\EntriesView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\RegistrationView.xaml;View\UserDetails.xaml;View\UserHomeView.xaml;View\UserSettingView.xaml;View\UserView.xaml;
+
+True
+

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Patient_Registration_System.View.AdminSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:Patient_Registration_System.View"
+             xmlns:vm="clr-namespace:Patient_Registration_System.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:AdminViewModel/>
+    </UserControl.DataContext>
+    <Grid Background="#E0E0E0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--image-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Border BorderBrush="Black" BorderThickness="2" Margin="360 0 0 0" Height="111" Width="111" CornerRadius="54.5" >
+                <Image Height="109" x:Name="changeimg" Width="109" Source="{Binding  UpdateSourceTrigger=PropertyChanged}" Stretch="Uniform" Margin="-1,-1,-1,0" VerticalAlignment="Top"    >
+                    <Image.Clip>
+                        <EllipseGeometry Center="54.5 54.5" RadiusX="54.5" RadiusY="54.5"/>
+                    </Image.Clip>
+                </Image>
+            </Border>
+            <Button x:Name="changeimgBtn" Style="{StaticResource chaangeimgButton}" Click="changeimgBtn_Click" Margin="50 0 0 0" Width="119" Height="30" >
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="ImageEdit" Margin="5 0 5 0 " />
+                    <TextBlock Text="Change Image"/>
+                    
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text=" Old User Name" Style="{StaticResource text}" Margin="0 0 65 0 " />
+                <TextBox x:Name="olduserNametxt" Style="{StaticResource textbox}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="New User Name" Style="{StaticResource text}" Margin="0 0 50 0 " />
+                <TextBox x:Name="newuserNametxt" Style="{StaticResource textbox}" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Old Password" Style="{StaticResource text}" Margin="0 0 65 0"  />
+                <TextBox x:Name="userOldpasswordxt" Style="{StaticResource textbox}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="New Password" Style="{StaticResource text}" Margin="0 0 61 0"  />
+                <TextBox x:Name="userNewpasswordxt" Style="{StaticResource textbox}" />
+            </StackPanel>
+        </Grid>
+        
+        <Button x:Name="saveChanegesbtn"  Grid.Row="3" Style="{StaticResource addButton }" Margin="0,15,0,20" Click="saveChanegesbtn_Click">
+            <StackPanel Orientation="Horizontal">
+                <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                <TextBlock Text="Save Changes" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

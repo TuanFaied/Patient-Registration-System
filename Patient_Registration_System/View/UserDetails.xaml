@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="Patient_Registration_System.View.UserDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Patient_Registration_System.View"
+              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+              xmlns:vm="clr-namespace:Patient_Registration_System.ViewModel"
+             xmlns:model="clr-namespace:Patient_Registration_System.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:UserViewModel/>
+    </UserControl.DataContext>
+    <Grid Background="#E0E0E0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" >
+            <StackPanel Margin=" 16 0 0 0"  Orientation="Horizontal" >
+                <TextBlock  Text="Patient Id" Foreground="#4A148C" Style="{StaticResource ListView}" Margin="50 0 0 0"   Width="100"  />
+                <TextBlock Text="Name" Foreground="#4A148C" Style="{StaticResource ListView}"  Width="100"  />
+                <TextBlock Text="Date of Birth" Foreground="#4A148C" Width="100"  Style="{StaticResource ListView}" />
+                <TextBlock Text="NIC"  Foreground="#4A148C"  HorizontalAlignment="Center" Width="150" Style="{StaticResource ListView}"  />
+                <TextBlock Text="Mobile No" Foreground="#4A148C" Width="150"  Style="{StaticResource ListView}" />
+
+            </StackPanel>
+            <ListView  x:Name="userList"  Margin="5 0 5 0" Height="350" VerticalAlignment="Top"  BorderThickness="0" Background="Transparent">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#9FA8DA"  BorderBrush="#9575CD" BorderThickness="1" Height="Auto" Padding="0.5" Margin="0 1 5 0" CornerRadius="23">
+                            <StackPanel   Background="Transparent" Orientation="Horizontal" >
+                               
+                                <Border BorderBrush="White" BorderThickness="2"  CornerRadius="500">
+
+                                <Image Source="{Binding ImageUser ,UpdateSourceTrigger=PropertyChanged}" Width="46" Height="46" Stretch="Uniform">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="23 23" RadiusX="23" RadiusY="23"/>
+                                    </Image.Clip>
+                                </Image>
+                                </Border>
+
+
+                                <TextBlock Text="{Binding UserId}" Width="100" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding Name}" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                                <TextBlock Text="{Binding Date_of_birth}" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding NIC}"  Width="150" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding Mobile}"  Width="150" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"   />
+                               
+
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackPanel>
+        <!--<ListView x:Name="userList" Background="Transparent" BorderThickness="0" Grid.Row="0" Margin="5 0 5 0" Height="350" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="60"  DisplayMemberBinding="{Binding UserId}"/>
+                    <GridViewColumn Header="Name" Width="160" DisplayMemberBinding="{Binding Name}"/>
+                    
+                    <GridViewColumn Header="Date of Birth" Width="160" DisplayMemberBinding="{Binding Date_of_birth}"/>
+                    <GridViewColumn Header="NIC" Width="160" DisplayMemberBinding="{Binding NIC}"/>
+                    <GridViewColumn Header="Mobile_No" Width="160" DisplayMemberBinding="{Binding Mobile}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button x:Name="userreadBtn"  Style="{StaticResource editButton}" Margin="10,20,10,20" Click="userreadBtn_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Read" />
+                    <Icon:PackIconMaterial Kind="Refresh" VerticalAlignment="Center" Width="11" Height="11" Margin="10 1 8 0"/>
+
+                </StackPanel>
+            </Button>
+            <Button x:Name="userdeltebtn"  Style="{StaticResource deleteButton}" Margin="0,20,0,20" Click="userdeltebtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Delete" />
+                    <Icon:PackIconMaterial Kind="Delete" VerticalAlignment="Center" Width="11" Height="11" Margin="10 1 8 0"/>
+
+                </StackPanel>
+            </Button>
+            <Border  Width="150" CornerRadius="20" BorderThickness="3" Margin="190 10 10 10">
+                <!--<Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#462AD8" Offset="0"/>
+                        <GradientStop Color="#DA34AE" Offset="0075"/>
+                        <GradientStop Color="#8A16c1" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>-->
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="#f1916D" Offset="0"/>
+                        <GradientStop Color="#F5D7DB" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding TotalUser}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Cooper Black" FontSize="24"/>
+                    <TextBlock Text="Toatal Patient"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Cooper Black" FontSize="16"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
